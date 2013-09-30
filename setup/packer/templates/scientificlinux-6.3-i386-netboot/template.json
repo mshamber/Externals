@@ -37,6 +37,7 @@
       "ssh_username": "vagrant",
       "iso_checksum": "c85099bd8d4627a6ebb039faf66563ad",
       "disk_size": 10140,
+      "headless": true,
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],

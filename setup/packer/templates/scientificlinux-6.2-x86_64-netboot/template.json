@@ -7,6 +7,7 @@
       "iso_checksum": "ef209276a7ba85f2e8a680e003c3c15d",
       "ssh_username": "vagrant",
       "boot_wait": "15s",
+      "headless": true,
       "type": "virtualbox",
       "vboxmanage": [
         [

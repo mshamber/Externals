@@ -24,6 +24,7 @@
       "boot_command": [
         "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],
+      "headless": true,
       "iso_checksum_type": "md5",
       "boot_wait": "10s",
       "virtualbox_version_file": ".vbox_version",

@@ -44,6 +44,7 @@
         ]
       ],
       "iso_checksum_type": "md5",
+      "headless": true,
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],

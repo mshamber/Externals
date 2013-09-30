@@ -33,6 +33,7 @@
       "ssh_wait_timeout": "10000s",
       "iso_checksum_type": "md5",
       "ssh_port": 22,
+      "headless": true,
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],

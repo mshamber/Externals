@@ -15,6 +15,7 @@
       "type": "virtualbox",
       "ssh_wait_timeout": "100s",
       "ssh_port": 22,
+      "headless": true,
       "boot_wait": "15s",
       "vboxmanage": [
         [

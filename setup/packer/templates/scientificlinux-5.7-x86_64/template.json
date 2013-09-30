@@ -34,6 +34,7 @@
       "ssh_port": 22,
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "boot_wait": "10s",
+      "headless": true,
       "boot_command": [
         "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],

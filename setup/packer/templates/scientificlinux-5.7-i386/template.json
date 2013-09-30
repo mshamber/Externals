@@ -43,6 +43,7 @@
       "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
       "iso_checksum": "e0a2bfb50febc493204f30e314637b10",
       "ssh_password": "vagrant",
+      "headless": true,
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "RedHat"
     },

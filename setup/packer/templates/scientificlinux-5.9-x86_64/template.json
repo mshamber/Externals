@@ -56,6 +56,7 @@
       ],
       "virtualbox_version_file": ".vbox_version",
       "iso_checksum_type": "md5",
+      "headless": true,
       "ssh_username": "vagrant",
       "boot_command": [
         "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"

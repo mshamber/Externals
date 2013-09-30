@@ -61,6 +61,7 @@
       "ssh_username": "vagrant",
       "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
       "http_directory": "http",
+      "headless": true,
       "guest_os_type": "RedHat",
       "disk_size": 10140,
       "ssh_wait_timeout": "10000s",
