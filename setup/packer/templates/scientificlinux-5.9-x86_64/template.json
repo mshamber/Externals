@@ -17,7 +17,7 @@
   ],
   "builders": [
     {
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/59/iso/x86_64/cd/SL.59.020213.CD.x86_64.disc1.iso",
+      "iso_url": "file:///opt/software/SL.59.020213.CD.x86_64.disc1.iso",
       "guest_os_type": "RedHat_64",
       "disk_size": 81920,
       "ssh_wait_timeout": "10000s",
@@ -64,7 +64,7 @@
       "ssh_port": 22
     },
     {
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/59/iso/x86_64/cd/SL.59.020213.CD.x86_64.disc1.iso",
+      "iso_url": "file:///opt/software/SL.59.020213.CD.x86_64.disc1.iso",
       "guest_os_type": "RedHat_64",
       "disk_size": 81920,
       "vmx_data": {

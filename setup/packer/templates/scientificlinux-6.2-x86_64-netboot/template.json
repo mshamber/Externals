@@ -3,7 +3,7 @@
     {
       "ssh_wait_timeout": "10000s",
       "ssh_password": "vagrant",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.2/x86_64/iso/SL-62-x86_64-2012-02-06-boot.iso",
+      "iso_url": "file:///opt/software/SL-62-x86_64-2012-02-06-boot.iso",
       "iso_checksum": "ef209276a7ba85f2e8a680e003c3c15d",
       "ssh_username": "vagrant",
       "boot_wait": "15s",
@@ -50,7 +50,7 @@
     {
       "ssh_wait_timeout": "10000s",
       "ssh_password": "vagrant",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.2/x86_64/iso/SL-62-x86_64-2012-02-06-boot.iso",
+      "iso_url": "file:///opt/software/SL-62-x86_64-2012-02-06-boot.iso",
       "iso_checksum": "ef209276a7ba85f2e8a680e003c3c15d",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",

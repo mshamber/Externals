@@ -31,7 +31,7 @@
       "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
       "ssh_wait_timeout": "10000s",
       "iso_checksum": "2b8c469f3b4495a094f926287ea31f89",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/59/iso/i386/cd/SL.59.020213.CD.i386.disc1.iso",
+      "iso_url": "file:///opt/software/SL.59.020213.CD.i386.disc1.iso",
       "http_directory": "http",
       "vboxmanage": [
         [
@@ -80,7 +80,7 @@
       "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
       "ssh_wait_timeout": "10000s",
       "iso_checksum": "2b8c469f3b4495a094f926287ea31f89",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/59/iso/i386/cd/SL.59.020213.CD.i386.disc1.iso",
+      "iso_url": "file:///opt/software/SL.59.020213.CD.i386.disc1.iso",
       "http_directory": "http",
       "ssh_port": 22,
       "type": "vmware",

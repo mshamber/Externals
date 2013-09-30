@@ -48,7 +48,7 @@
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.4/i386/iso/SL-64-i386-2013-03-18-boot.iso",
+      "iso_url": "file:///opt/software/SL-64-i386-2013-03-18-boot.iso",
       "http_directory": "http",
       "guest_os_type": "RedHat",
       "boot_wait": "15s",
@@ -71,7 +71,7 @@
         "cpuid.coresPerSocket": "1",
         "numvcpus": "1"
       },
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.4/i386/iso/SL-64-i386-2013-03-18-boot.iso",
+      "iso_url": "file:///opt/software/SL-64-i386-2013-03-18-boot.iso",
       "http_directory": "http",
       "guest_os_type": "RedHat",
       "boot_wait": "15s",

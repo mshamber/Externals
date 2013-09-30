@@ -44,7 +44,7 @@
       "ssh_wait_timeout": "10000s",
       "ssh_port": 22,
       "http_directory": "http",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.3/i386/iso/SL-63-i386-2012-08-02-boot.iso",
+      "iso_url": "file:///opt/software/SL-63-i386-2012-08-02-boot.iso",
       "boot_wait": "15s"
     },
     {
@@ -67,7 +67,7 @@
       "ssh_wait_timeout": "10000s",
       "ssh_port": 22,
       "http_directory": "http",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.3/i386/iso/SL-63-i386-2012-08-02-boot.iso",
+      "iso_url": "file:///opt/software/SL-63-i386-2012-08-02-boot.iso",
       "boot_wait": "15s"
     }
   ],

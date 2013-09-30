@@ -44,7 +44,7 @@
         ]
       ],
       "iso_checksum": "863841b65b5b42f7ad0e735bb9aa669d",
-      "iso_url": "http://mirrors.200p-sf.sonic.net/scientific/6.1/x86_64/iso/SL-61-x86_64-2011-07-27-boot.iso",
+      "iso_url": "file:///opt/software/SL-61-x86_64-2011-07-27-boot.iso",
       "iso_checksum_type": "md5"
     },
     {
@@ -67,7 +67,7 @@
       "ssh_port": 22,
       "boot_wait": "15s",
       "iso_checksum": "863841b65b5b42f7ad0e735bb9aa669d",
-      "iso_url": "http://mirrors.200p-sf.sonic.net/scientific/6.1/x86_64/iso/SL-61-x86_64-2011-07-27-boot.iso",
+      "iso_url": "file:///opt/software/SL-61-x86_64-2011-07-27-boot.iso",
       "iso_checksum_type": "md5"
     }
   ],

@@ -26,7 +26,7 @@
     {
       "ssh_port": 22,
       "ssh_username": "veewee",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.4/x86_64/iso/SL-64-x86_64-2013-03-18-boot.iso",
+      "iso_url": "file:///opt/software/SL-64-x86_64-2013-03-18-boot.iso",
       "virtualbox_version_file": ".vbox_version",
       "ssh_password": "veewee",
       "guest_os_type": "RedHat_64",
@@ -61,7 +61,7 @@
     {
       "ssh_port": 22,
       "ssh_username": "veewee",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.4/x86_64/iso/SL-64-x86_64-2013-03-18-boot.iso",
+      "iso_url": "file:///opt/software/SL-64-x86_64-2013-03-18-boot.iso",
       "ssh_password": "veewee",
       "guest_os_type": "RedHat_64",
       "boot_wait": "15s",

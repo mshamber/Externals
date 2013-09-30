@@ -43,7 +43,7 @@
       "boot_wait": "15s",
       "type": "virtualbox",
       "virtualbox_version_file": ".vbox_version",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.2/i386/iso/SL-62-i386-2012-02-06-boot.iso",
+      "iso_url": "file:///opt/software/SL-62-i386-2012-02-06-boot.iso",
       "iso_checksum_type": "md5"
     },
     {
@@ -67,7 +67,7 @@
       "ssh_wait_timeout": "10000s",
       "boot_wait": "15s",
       "type": "vmware",
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.2/i386/iso/SL-62-i386-2012-02-06-boot.iso",
+      "iso_url": "file:///opt/software/SL-62-i386-2012-02-06-boot.iso",
       "iso_checksum_type": "md5"
     }
   ],

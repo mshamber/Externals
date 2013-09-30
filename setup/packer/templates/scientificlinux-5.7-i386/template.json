@@ -8,7 +8,7 @@
       "ssh_port": 22,
       "ssh_username": "vagrant",
       "disk_size": 81920,
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/57/iso/i386/cd/SL.57.091211.CD.i386.disc1.iso",
+      "iso_url": "file:///opt/software/SL.57.091211.CD.i386.disc1.iso",
       "iso_checksum_type": "md5",
       "type": "virtualbox",
       "vboxmanage": [
@@ -54,7 +54,7 @@
       "ssh_port": 22,
       "ssh_username": "vagrant",
       "disk_size": 81920,
-      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/57/iso/i386/cd/SL.57.091211.CD.i386.disc1.iso",
+      "iso_url": "file:///opt/software/SL.57.091211.CD.i386.disc1.iso",
       "iso_checksum_type": "md5",
       "type": "vmware",
       "boot_command": [

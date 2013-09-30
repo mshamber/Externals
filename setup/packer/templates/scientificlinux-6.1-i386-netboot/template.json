@@ -32,7 +32,7 @@
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],
-      "iso_url": "http://mirrors.200p-sf.sonic.net/scientific/6.1/i386/iso/SL-61-i386-2011-07-27-boot.iso",
+      "iso_url": "file:///opt/software/SL-61-i386-2011-07-27-boot.iso",
       "http_directory": "http",
       "vboxmanage": [
         [
@@ -83,7 +83,7 @@
       "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
       ],
-      "iso_url": "http://mirrors.200p-sf.sonic.net/scientific/6.1/i386/iso/SL-61-i386-2011-07-27-boot.iso",
+      "iso_url": "file:///opt/software/SL-61-i386-2011-07-27-boot.iso",
       "http_directory": "http",
       "ssh_password": "vagrant",
       "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
