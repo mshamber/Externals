@@ -1,0 +1,89 @@
+{
+  "builders": [
+    {
+      "ssh_wait_timeout": "10000s",
+      "boot_wait": "10s",
+      "http_directory": "http",
+      "virtualbox_version_file": ".vbox_version",
+      "ssh_port": 22,
+      "ssh_username": "vagrant",
+      "disk_size": 81920,
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/57/iso/i386/cd/SL.57.091211.CD.i386.disc1.iso",
+      "iso_checksum_type": "md5",
+      "type": "virtualbox",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "384"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--ioapic",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--pae",
+          "on"
+        ]
+      ],
+      "boot_command": [
+        "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "iso_checksum": "e0a2bfb50febc493204f30e314637b10",
+      "ssh_password": "vagrant",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_os_type": "RedHat"
+    },
+    {
+      "ssh_wait_timeout": "10000s",
+      "boot_wait": "10s",
+      "http_directory": "http",
+      "ssh_port": 22,
+      "ssh_username": "vagrant",
+      "disk_size": 81920,
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/57/iso/i386/cd/SL.57.091211.CD.i386.disc1.iso",
+      "iso_checksum_type": "md5",
+      "type": "vmware",
+      "boot_command": [
+        "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "numvcpus": "1",
+        "memsize": "384"
+      },
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "iso_checksum": "e0a2bfb50febc493204f30e314637b10",
+      "ssh_password": "vagrant",
+      "guest_os_type": "RedHat"
+    }
+  ],
+  "provisioners": [
+    {
+      "scripts": [
+        "scripts/postinstall.sh"
+      ],
+      "type": "shell",
+      "override": {
+        "vmware": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        },
+        "virtualbox": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        }
+      }
+    }
+  ]
+}

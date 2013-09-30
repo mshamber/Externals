@@ -1,0 +1,95 @@
+{
+  "builders": [
+    {
+      "virtualbox_version_file": ".vbox_version",
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "type": "virtualbox",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "iso_checksum_type": "md5",
+      "guest_os_type": "RedHat",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "512"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--ioapic",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--pae",
+          "on"
+        ]
+      ],
+      "ssh_password": "vagrant",
+      "ssh_username": "vagrant",
+      "iso_checksum": "c85099bd8d4627a6ebb039faf66563ad",
+      "disk_size": 10140,
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "ssh_wait_timeout": "10000s",
+      "ssh_port": 22,
+      "http_directory": "http",
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.3/i386/iso/SL-63-i386-2012-08-02-boot.iso",
+      "boot_wait": "15s"
+    },
+    {
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "type": "vmware",
+      "iso_checksum_type": "md5",
+      "guest_os_type": "RedHat",
+      "vmx_data": {
+        "numvcpus": "1",
+        "memsize": "512",
+        "cpuid.coresPerSocket": "1"
+      },
+      "ssh_password": "vagrant",
+      "ssh_username": "vagrant",
+      "iso_checksum": "c85099bd8d4627a6ebb039faf66563ad",
+      "disk_size": 10140,
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "ssh_wait_timeout": "10000s",
+      "ssh_port": 22,
+      "http_directory": "http",
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.3/i386/iso/SL-63-i386-2012-08-02-boot.iso",
+      "boot_wait": "15s"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/puppet.sh",
+        "scripts/chef.sh",
+        "scripts/vagrant.sh",
+        "scripts/virtualbox.sh",
+        "scripts/ruby.sh",
+        "scripts/cleanup.sh"
+      ],
+      "override": {
+        "vmware": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        },
+        "virtualbox": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        }
+      }
+    }
+  ]
+}

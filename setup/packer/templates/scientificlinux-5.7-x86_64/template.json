@@ -1,0 +1,89 @@
+{
+  "builders": [
+    {
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "384"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--ioapic",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--pae",
+          "on"
+        ]
+      ],
+      "iso_checksum_type": "md5",
+      "ssh_password": "vagrant",
+      "http_directory": "http",
+      "iso_checksum": "f37b442e0ce3ec18360a11c3676a285b",
+      "ssh_port": 22,
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "boot_wait": "10s",
+      "boot_command": [
+        "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "virtualbox_version_file": ".vbox_version",
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "ssh_username": "vagrant",
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/57/iso/x86_64/cd/SL.57.091211.CD.x86_64.disc1.iso",
+      "ssh_wait_timeout": "10000s",
+      "guest_os_type": "RedHat_64",
+      "type": "virtualbox",
+      "disk_size": 81920
+    },
+    {
+      "iso_checksum_type": "md5",
+      "ssh_password": "vagrant",
+      "http_directory": "http",
+      "iso_checksum": "f37b442e0ce3ec18360a11c3676a285b",
+      "vmx_data": {
+        "numvcpus": "1",
+        "cpuid.coresPerSocket": "1",
+        "memsize": "384"
+      },
+      "ssh_port": 22,
+      "boot_wait": "10s",
+      "boot_command": [
+        "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "ssh_username": "vagrant",
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/57/iso/x86_64/cd/SL.57.091211.CD.x86_64.disc1.iso",
+      "ssh_wait_timeout": "10000s",
+      "guest_os_type": "RedHat_64",
+      "type": "vmware",
+      "disk_size": 81920
+    }
+  ],
+  "provisioners": [
+    {
+      "scripts": [
+        "scripts/postinstall.sh"
+      ],
+      "type": "shell",
+      "override": {
+        "vmware": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        },
+        "virtualbox": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        }
+      }
+    }
+  ]
+}

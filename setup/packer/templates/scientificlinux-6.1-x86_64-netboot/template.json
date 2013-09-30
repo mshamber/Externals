@@ -1,0 +1,93 @@
+{
+  "builders": [
+    {
+      "guest_os_type": "RedHat_64",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "virtualbox_version_file": ".vbox_version",
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "ssh_password": "vagrant",
+      "disk_size": 10140,
+      "ssh_username": "vagrant",
+      "http_directory": "http",
+      "type": "virtualbox",
+      "ssh_wait_timeout": "100s",
+      "ssh_port": 22,
+      "boot_wait": "15s",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "512"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--ioapic",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--pae",
+          "on"
+        ]
+      ],
+      "iso_checksum": "863841b65b5b42f7ad0e735bb9aa669d",
+      "iso_url": "http://mirrors.200p-sf.sonic.net/scientific/6.1/x86_64/iso/SL-61-x86_64-2011-07-27-boot.iso",
+      "iso_checksum_type": "md5"
+    },
+    {
+      "guest_os_type": "RedHat_64",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "numvcpus": "1",
+        "memsize": "512"
+      },
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "ssh_password": "vagrant",
+      "disk_size": 10140,
+      "ssh_username": "vagrant",
+      "http_directory": "http",
+      "type": "vmware",
+      "ssh_wait_timeout": "100s",
+      "ssh_port": 22,
+      "boot_wait": "15s",
+      "iso_checksum": "863841b65b5b42f7ad0e735bb9aa669d",
+      "iso_url": "http://mirrors.200p-sf.sonic.net/scientific/6.1/x86_64/iso/SL-61-x86_64-2011-07-27-boot.iso",
+      "iso_checksum_type": "md5"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "override": {
+        "virtualbox": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        },
+        "vmware": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        }
+      },
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/puppet.sh",
+        "scripts/chef.sh",
+        "scripts/vagrant.sh",
+        "scripts/cleanup.sh"
+      ]
+    }
+  ]
+}

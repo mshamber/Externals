@@ -1,0 +1,89 @@
+{
+  "provisioners": [
+    {
+      "override": {
+        "virtualbox": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        },
+        "vmware": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        }
+      },
+      "scripts": [
+        "scripts/postinstall.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "builders": [
+    {
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "ssh_password": "vagrant",
+      "ssh_username": "vagrant",
+      "disk_size": 81920,
+      "boot_command": [
+        "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "iso_checksum_type": "md5",
+      "boot_wait": "10s",
+      "virtualbox_version_file": ".vbox_version",
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "ssh_wait_timeout": "10000s",
+      "iso_checksum": "2b8c469f3b4495a094f926287ea31f89",
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/59/iso/i386/cd/SL.59.020213.CD.i386.disc1.iso",
+      "http_directory": "http",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "384"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--ioapic",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--pae",
+          "on"
+        ]
+      ],
+      "ssh_port": 22,
+      "type": "virtualbox",
+      "guest_os_type": "RedHat"
+    },
+    {
+      "ssh_password": "vagrant",
+      "ssh_username": "vagrant",
+      "disk_size": 81920,
+      "boot_command": [
+        "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "iso_checksum_type": "md5",
+      "boot_wait": "10s",
+      "vmx_data": {
+        "memsize": "384",
+        "numvcpus": "1",
+        "cpuid.coresPerSocket": "1"
+      },
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "ssh_wait_timeout": "10000s",
+      "iso_checksum": "2b8c469f3b4495a094f926287ea31f89",
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/59/iso/i386/cd/SL.59.020213.CD.i386.disc1.iso",
+      "http_directory": "http",
+      "ssh_port": 22,
+      "type": "vmware",
+      "guest_os_type": "RedHat"
+    }
+  ]
+}

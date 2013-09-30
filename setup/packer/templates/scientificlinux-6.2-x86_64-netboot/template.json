@@ -1,0 +1,94 @@
+{
+  "builders": [
+    {
+      "ssh_wait_timeout": "10000s",
+      "ssh_password": "vagrant",
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.2/x86_64/iso/SL-62-x86_64-2012-02-06-boot.iso",
+      "iso_checksum": "ef209276a7ba85f2e8a680e003c3c15d",
+      "ssh_username": "vagrant",
+      "boot_wait": "15s",
+      "type": "virtualbox",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "512"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--ioapic",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--pae",
+          "on"
+        ]
+      ],
+      "http_directory": "http",
+      "virtualbox_version_file": ".vbox_version",
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "ssh_port": 22,
+      "disk_size": 10140,
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "guest_os_type": "RedHat_64",
+      "iso_checksum_type": "md5"
+    },
+    {
+      "ssh_wait_timeout": "10000s",
+      "ssh_password": "vagrant",
+      "iso_url": "http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.2/x86_64/iso/SL-62-x86_64-2012-02-06-boot.iso",
+      "iso_checksum": "ef209276a7ba85f2e8a680e003c3c15d",
+      "vmx_data": {
+        "cpuid.coresPerSocket": "1",
+        "numvcpus": "1",
+        "memsize": "512"
+      },
+      "ssh_username": "vagrant",
+      "boot_wait": "15s",
+      "type": "vmware",
+      "http_directory": "http",
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "ssh_port": 22,
+      "disk_size": 10140,
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "guest_os_type": "RedHat_64",
+      "iso_checksum_type": "md5"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/puppet.sh",
+        "scripts/chef.sh",
+        "scripts/vagrant.sh",
+        "scripts/virtualbox.sh",
+        "scripts/cleanup.sh"
+      ],
+      "override": {
+        "vmware": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        },
+        "virtualbox": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        }
+      }
+    }
+  ]
+}
