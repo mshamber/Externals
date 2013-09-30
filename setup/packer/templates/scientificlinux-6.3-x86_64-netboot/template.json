@@ -92,5 +92,6 @@
       "type": "vmware",
       "disk_size": 10140
     }
-  ]
+  ],
+  "post-processors": ["vagrant"]
 }

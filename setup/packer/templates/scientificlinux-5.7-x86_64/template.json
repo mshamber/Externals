@@ -86,5 +86,6 @@
         }
       }
     }
-  ]
+  ],
+  "post-processors": ["vagrant"]
 }

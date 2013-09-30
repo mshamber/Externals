@@ -81,5 +81,6 @@
       },
       "ssh_wait_timeout": "10000s"
     }
-  ]
+  ],
+  "post-processors": ["vagrant"]
 }

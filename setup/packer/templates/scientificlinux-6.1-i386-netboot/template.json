@@ -90,5 +90,6 @@
       "ssh_wait_timeout": "100s",
       "ssh_username": "vagrant"
     }
-  ]
+  ],
+  "post-processors": ["vagrant"]
 }

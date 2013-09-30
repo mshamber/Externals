@@ -90,5 +90,6 @@
         "scripts/cleanup.sh"
       ]
     }
-  ]
+  ],
+  "post-processors": ["vagrant"]
 }

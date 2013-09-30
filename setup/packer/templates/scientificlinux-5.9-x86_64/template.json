@@ -86,5 +86,6 @@
       ],
       "ssh_port": 22
     }
-  ]
+  ],
+  "post-processors": ["vagrant"]
 }
