@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "vmname": "",
+  },
   "provisioners": [
     {
       "override": {
@@ -23,6 +26,7 @@
   ],
   "builders": [
     {
+      "vm_name": "{{user `vmname`}}",
       "ssh_password": "vagrant",
       "guest_os_type": "RedHat_64",
       "iso_url": "file:///opt/software/6.3/x86_64/iso/SL-63-x86_64-2012-08-02-boot.iso",
