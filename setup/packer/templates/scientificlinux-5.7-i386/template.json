@@ -1,6 +1,10 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "ssh_wait_timeout": "10000s",
       "boot_wait": "10s",
       "http_directory": "http",

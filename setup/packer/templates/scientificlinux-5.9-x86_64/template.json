@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "provisioners": [
     {
       "override": {
@@ -17,6 +20,7 @@
   ],
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "iso_url": "file:///opt/software/SL.59.020213.CD.x86_64.disc1.iso",
       "guest_os_type": "RedHat_64",
       "disk_size": 81920,

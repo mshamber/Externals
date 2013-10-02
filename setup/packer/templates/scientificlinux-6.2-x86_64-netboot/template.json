@@ -1,6 +1,10 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "ssh_wait_timeout": "10000s",
       "ssh_password": "vagrant",
       "iso_url": "file:///opt/software/SL-62-x86_64-2012-02-06-boot.iso",

@@ -1,6 +1,10 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "virtualbox_version_file": ".vbox_version",
       "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
       "type": "virtualbox",

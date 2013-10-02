@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "provisioners": [
     {
       "override": {
@@ -17,6 +20,7 @@
   ],
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "ssh_password": "vagrant",
       "ssh_username": "vagrant",

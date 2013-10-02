@@ -1,6 +1,10 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "ssh_port": 22,
       "iso_checksum": "c9f591724738634803f815f69339fc21",
       "boot_command": [

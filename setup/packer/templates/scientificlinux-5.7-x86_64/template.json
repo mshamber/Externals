@@ -1,6 +1,10 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "vboxmanage": [
         [
           "modifyvm",

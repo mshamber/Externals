@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "provisioners": [
     {
       "scripts": [
@@ -24,6 +27,7 @@
   ],
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "virtualbox_version_file": ".vbox_version",
       "ssh_port": 22,
       "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'veewee'|sudo -S sh 'shutdown.sh'",

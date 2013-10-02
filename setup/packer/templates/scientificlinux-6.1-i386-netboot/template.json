@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "provisioners": [
     {
       "override": {
@@ -21,6 +24,7 @@
   ],
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "guest_os_type": "RedHat_64",
       "disk_size": 10140,
       "boot_wait": "15s",

@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
   "provisioners": [
     {
       "scripts": [
@@ -24,6 +27,7 @@
   ],
   "builders": [
     {
+      "vm_name": "{{user `vm_name`}}",
       "ssh_port": 22,
       "ssh_username": "veewee",
       "iso_url": "file:///opt/software/SL-64-x86_64-2013-03-18-boot.iso",
