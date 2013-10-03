@@ -18,7 +18,7 @@ wget http://mirrors.200p-sf.sonic.net/scientific/6.1/x86_64/iso/SL-61-x86_64-201
 # Get scilin 6.2 i386
 wget http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.2/i386/iso/SL-62-i386-2012-02-06-boot.iso
 # Get scilin 6.2 x86_64
-wget http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.2/i386/iso/SL-62-i386-2012-02-06-boot.iso
+wget http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.2/x86_64/iso/SL-62-x86_64-2012-02-06-boot.iso
 
 # Get scilin 6.3 i386
 http://ftp.heanet.ie/pub/rsync.scientificlinux.org/6.3/i386/iso/SL-63-i386-2012-08-02-boot.iso
