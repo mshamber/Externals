@@ -11,8 +11,7 @@
         "scripts/puppet.sh",
         "scripts/vagrant.sh",
         "scripts/virtualbox.sh",
-        "scripts/cleanup.sh",
-        "scripts/zerodisk.sh"
+        "scripts/cleanup.sh"
       ],
       "type": "shell",
       "override": {
