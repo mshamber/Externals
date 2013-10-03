@@ -10,7 +10,7 @@ Vagrant::Config.run do |global_config|
     global_config.vm.define name do |config|
       vm_name = "#{name}"
       ipaddress = options[:ipaddress]
-      config.vm.share_folder("v-root", "/vagrant", ".", :disabled => true)
+      config.vm.share_folder("vagrant-root", "/vagrant", ".", :disabled => true)
       config.vm.box = "scientificlinux-5.7-i386"
       config.vm.boot_mode = :headless
       config.vm.host_name = vm_name
