@@ -1,12 +1,12 @@
 current_dir = File.dirname(__FILE__)
-glibc_25 = {
-  :glibc_25 => {
-    :hostname => "glibc_25",
+glibc25 = {
+  :glibc25 => {
+    :hostname => "glibc25",
     :ipaddress => "192.168.0.80"
   },
 }
 Vagrant::Config.run do |global_config|
-  glibc_25.each_pair do |name, options|
+  glibc25.each_pair do |name, options|
     global_config.vm.define name do |config|
       vm_name = "#{name}"
       ipaddress = options[:ipaddress]
