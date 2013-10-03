@@ -84,5 +84,6 @@
       "ssh_password": "veewee",
       "ssh_username": "veewee"
     }
-  ]
+  ],
+  "post-processors": ["vagrant"]
 }
