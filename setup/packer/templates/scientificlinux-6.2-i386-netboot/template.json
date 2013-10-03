@@ -45,6 +45,7 @@
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "ssh_wait_timeout": "10000s",
       "boot_wait": "15s",
+      "headless": true,
       "type": "virtualbox",
       "virtualbox_version_file": ".vbox_version",
       "iso_url": "file:///opt/software/SL-62-i386-2012-02-06-boot.iso",
