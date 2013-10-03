@@ -6,7 +6,7 @@ glibc_25 = {
   },
 }
 Vagrant::Config.run do |global_config|
-  apache_env.each_pair do |name, options|
+  glibc_25.each_pair do |name, options|
     global_config.vm.define name do |config|
       vm_name = "#{name}"
       ipaddress = options[:ipaddress]
