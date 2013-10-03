@@ -1,7 +1,7 @@
 current_dir = File.dirname(__FILE__)
-glibc_2.5 = {
-  :glibc_2.5 => {
-    :hostname => "glibc_2.5",
+glibc_25 = {
+  :glibc_25 => {
+    :hostname => "glibc_25",
     :ipaddress => "192.168.0.80"
   },
 }
