@@ -2,7 +2,7 @@ current_dir = File.dirname(__FILE__)
 extbuild = {
   :extbuild => {
     :hostname => "extbuild",
-    :ipaddress => "192.168.0.89"
+    :ipaddress => "192.168.0.90"
   },
 }
 Vagrant::Config.run do |global_config|

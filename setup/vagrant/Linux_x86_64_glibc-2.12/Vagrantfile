@@ -2,7 +2,7 @@ current_dir = File.dirname(__FILE__)
 extbuild = {
   :extbuild => {
     :hostname => "extbuild",
-    :ipaddress => "192.168.0.80"
+    :ipaddress => "192.168.0.89"
   },
 }
 Vagrant::Config.run do |global_config|
@@ -11,7 +11,7 @@ Vagrant::Config.run do |global_config|
       vm_name = "#{name}"
       ipaddress = options[:ipaddress]
       config.vm.share_folder("vagrant-root", "/vagrant", ".", :disabled => true)
-      config.vm.box = "scientificlinux-5.7-i386"
+      config.vm.box = "scientificlinux-6.4-x86_64-netboot"
       config.vm.boot_mode = :headless
       config.vm.host_name = vm_name
       config.vm.network :hostonly, ipaddress
