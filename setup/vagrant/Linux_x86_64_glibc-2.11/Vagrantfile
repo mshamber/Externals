@@ -1,0 +1,34 @@
+current_dir = File.dirname(__FILE__)
+glibc25 = {
+  :glibc25 => {
+    :hostname => "glibc25",
+    :ipaddress => "192.168.0.80"
+  },
+}
+Vagrant::Config.run do |global_config|
+  glibc25.each_pair do |name, options|
+    global_config.vm.define name do |config|
+      vm_name = "#{name}"
+      ipaddress = options[:ipaddress]
+      config.vm.share_folder("vagrant-root", "/vagrant", ".", :disabled => true)
+      config.vm.box = "scientificlinux-5.7-i386"
+      config.vm.boot_mode = :headless
+      config.vm.host_name = vm_name
+      config.vm.network :hostonly, ipaddress
+#      config.vm.forward_port 7001,8083,:auto=>true
+#      config.vm.forward_port 7002,7002,:auto=>true
+#      config.vm.provision :chef_client do |chef|
+#        chef.chef_server_url = "http://192.168.0.11:4000"
+#        chef.environment = "Liferay_Dev"
+#        chef.validation_key_path = "validation.pem"
+#        chef.validation_client_name = "chef-validator"
+#        chef.node_name = vm_name
+#        chef.provisioning_path = "/etc/chef"
+#        chef.log_level = :info
+#        run_list = []
+#        run_list << ENV['CHEF_RUN_LIST'].split(",") if ENV.has_key?('CHEF_RUN_LIST')
+#        chef.run_list = [options[:run_list].split(","), run_list].flatten
+#      end
+    end
+  end
+end
