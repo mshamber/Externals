@@ -1,7 +1,7 @@
 current_dir = File.dirname(__FILE__)
-glibc25 = {
-  :glibc25 => {
-    :hostname => "glibc25",
+extbuild = {
+  :extbuild => {
+    :hostname => "extbuild",
     :ipaddress => "192.168.0.80"
   },
 }
