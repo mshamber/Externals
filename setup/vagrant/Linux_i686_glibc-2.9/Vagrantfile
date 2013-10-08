@@ -4,6 +4,7 @@ extbuild = {
     :hostname => "extbuild",
     :ipaddress => "192.168.0.82"
   },
+}
 Vagrant::Config.run do |global_config|
   extbuild.each_pair do |name, options|
     global_config.vm.define name do |config|
