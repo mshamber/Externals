@@ -88,7 +88,6 @@
       },
       "scripts": [
         "scripts/base.sh",
-        "scripts/puppet.sh",
         "scripts/chef.sh",
         "scripts/vagrant.sh",
         "scripts/cleanup.sh"
