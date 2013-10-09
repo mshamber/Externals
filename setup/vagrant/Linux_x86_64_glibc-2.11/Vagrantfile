@@ -11,7 +11,7 @@ Vagrant::Config.run do |global_config|
       vm_name = "#{name}"
       ipaddress = options[:ipaddress]
       config.vm.share_folder("vagrant-root", "/vagrant", ".", :disabled => true)
-      config.vm.box = "scientificlinux-6.2-i386-netboot"
+      config.vm.box = "scientificlinux-6.1-i386-netboot"
       config.vm.boot_mode = :headless
       config.vm.host_name = vm_name
       config.vm.network :hostonly, ipaddress
