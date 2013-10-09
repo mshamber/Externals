@@ -80,7 +80,6 @@
       "type": "shell",
       "scripts": [
         "scripts/base.sh",
-        "scripts/puppet.sh",
         "scripts/chef.sh",
         "scripts/vagrant.sh",
         "scripts/virtualbox.sh",
