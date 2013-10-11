@@ -1,0 +1,95 @@
+{
+  "variables": {
+    "vm_name": "packer-virtualbox"
+  },
+  "provisioners": [
+    {
+      "override": {
+        "vmware": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        },
+        "virtualbox": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        }
+      },
+      "type": "shell",
+      "scripts": [
+        "scripts/postinstall.sh"
+      ]
+    }
+  ],
+  "builders": [
+    {
+      "vm_name": "{{user `vm_name`}}",
+      "iso_url": "file:///opt/software/SL.59.020213.CD.x86_64.disc1.iso",
+      "guest_os_type": "RedHat_64",
+      "disk_size": 81920,
+      "ssh_wait_timeout": "10000s",
+      "http_directory": "http",
+      "type": "virtualbox",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "boot_wait": "10s",
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "ssh_password": "vagrant",
+      "iso_checksum": "ce5bdd399b9441598cb1cfbe9e341d93",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "384"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--ioapic",
+          "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--pae",
+          "on"
+        ]
+      ],
+      "virtualbox_version_file": ".vbox_version",
+      "iso_checksum_type": "md5",
+      "headless": true,
+      "ssh_username": "vagrant",
+      "boot_command": [
+        "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "ssh_port": 22
+    },
+    {
+      "iso_url": "file:///opt/software/SL.59.020213.CD.x86_64.disc1.iso",
+      "guest_os_type": "RedHat_64",
+      "disk_size": 81920,
+      "vmx_data": {
+        "memsize": "384",
+        "cpuid.coresPerSocket": "1",
+        "numvcpus": "1"
+      },
+      "ssh_wait_timeout": "10000s",
+      "http_directory": "http",
+      "type": "vmware",
+      "boot_wait": "10s",
+      "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "ssh_password": "vagrant",
+      "iso_checksum": "ce5bdd399b9441598cb1cfbe9e341d93",
+      "iso_checksum_type": "md5",
+      "ssh_username": "vagrant",
+      "boot_command": [
+        "linux text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "ssh_port": 22
+    }
+  ],
+  "post-processors": ["vagrant"]
+}
